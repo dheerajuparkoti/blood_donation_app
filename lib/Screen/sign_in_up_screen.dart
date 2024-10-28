@@ -1091,16 +1091,21 @@ class _SignInSignUpState extends State<SignInSignUp>
     setState(() {
       isLoading = true; // Set isLoading to true when login button is pressed
     });
+     // Get the device token
+     NotificationService notificationService =NotificationService();
+    String deviceToken = await notificationService.getDeviceToken();
 
     final username = signInUsernameController.text.trim();
     final password = passwordController.text.trim();
+  
+
 
     // Create an instance of CallApi
     CallApi callApi = CallApi();
 
     try {
       final Map<String, dynamic> response =
-          await callApi.login(username, password);
+          await callApi.login(username, password,deviceToken);
 
       if (response.containsKey('token') && response.containsKey('userId')) {
 

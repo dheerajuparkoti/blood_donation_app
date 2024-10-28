@@ -25,12 +25,11 @@ await Firebase.initializeApp();
    FirebaseMessaging.onBackgroundMessage(_firebaseBackgroundHandler);
 
 // Get the server key token
-  GetServerKey serverKey = GetServerKey();
-  String accessToken = await serverKey.getServerKeyToken();
-  print('Access Token: $accessToken'); // Print the access token for testing
+  // GetServerKey serverKey = GetServerKey();
+  // String accessToken = await serverKey.getServerKeyToken();
+  // print('Access Token: $accessToken'); // Print the access token for testing
 
 
- 
 
   FirebaseMessaging messaging = FirebaseMessaging.instance;
   await messaging.subscribeToTopic('mobilebloodbanknepalnotifications');
